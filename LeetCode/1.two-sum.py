@@ -7,17 +7,19 @@
 # @lc code=start
 class Solution(object):
     def twoSum(self, nums, target):
-        n = len(nums)
-        for i in range(n-1):
-            cur = nums[i]
-            x = target - cur
-            for k in range(len(nums)):
-                if x == nums[k] and k!=i:
-                    return [i,k]
-        
-            
-        
-        
-        
+        nums.sort()
+        n = len(nums)-1
+        m = 0
+        output=[]
+        while m < n :
+            if nums[n] - nums[m]== target:
+                output.append(m)
+                output.append(n)
+                break
+            elif nums[n]-nums[m]> target:
+                n -= 1
+            else:
+                m += 1     
+        return output
 # @lc code=end
 
